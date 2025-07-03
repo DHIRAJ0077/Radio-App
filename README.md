@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web Radio Player
+
+A modern web-based radio streaming application built with [Next.js](https://nextjs.org). This application allows users to listen to various radio stations, search for stations by name or category, and control playback volume.
 
 ## Getting Started
 
