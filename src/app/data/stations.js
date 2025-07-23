@@ -9,13 +9,7 @@
  */
 
 const stations = [
-  {
-    id: 1,
-    name: "Radio Mirchi",
-    url: "https://filmymirchihdliv-lh.akamaihd.net/i/FilmyMirchiHDLive_1_1@336266/master.m3u8",
-    logo: "/radio-logos/placeholder.svg",
-    category: "Indian"
-  },
+ 
   {
     id: 2,
     name: "Capital FM",
@@ -44,20 +38,7 @@ const stations = [
     logo: "/radio-logos/placeholder.svg",
     category: "Music"
   },
-  {
-    id: 6,
-    name: "Radio City",
-    url: "https://prclive1.listenon.in/Hindi",
-    logo: "/radio-logos/placeholder.svg",
-    category: "Indian"
-  },
-  {
-    id: 7,
-    name: "Big FM",
-    url: "https://sc-bb.1.fm:8017/",
-    logo: "/radio-logos/placeholder.svg",
-    category: "Indian"
-  },
+ 
   {
     id: 8,
     name: "Kiss FM",
@@ -100,13 +81,7 @@ const stations = [
     logo: "/radio-logos/placeholder.svg",
     category: "Sports"
   },
-  {
-    id: 14,
-    name: "Radio Bollywood",
-    url: "https://stream.zeno.fm/0xsvm1r3yceuv",
-    logo: "/radio-logos/placeholder.svg",
-    category: "Indian"
-  },
+ 
   {
     id: 15,
     name: "Jazz FM",
@@ -128,13 +103,58 @@ const stations = [
     logo: "/radio-logos/placeholder.svg",
     category: "Music"
   },
-  {
-    id: 18,
-    name: "AIR FM Gold",
-    url: "https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8",
+ 
+    {
+    id: 19,
+    name: "BBC Radio 1",
+    url: "https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one",
     logo: "/radio-logos/placeholder.svg",
-    category: "Indian"
-  }
+    category: "Music"
+  },
+  {
+    id: 20,
+    name: "NRJ France",
+    url: "https://cdn.nrjaudio.fm/audio1/fr/30001/mp3_128.mp3",
+    logo: "/radio-logos/placeholder.svg",
+    category: "Music"
+  },
+  {
+    id: 21,
+    name: "Radio Paradise",
+    url: "https://stream.radioparadise.com/mp3-128",
+    logo: "/radio-logos/placeholder.svg",
+    category: "Music"
+  },
+  {
+    id: 22,
+    name: "Hit FM",
+    url: "https://hitfm.leanstream.co/HITFM",
+    logo: "/radio-logos/placeholder.svg",
+    category: "Music"
+  },
+  {
+    id: 23,
+    name: "Fun Radio",
+    url: "https://streaming.radio.funradio.fr/fun-1-44-128",
+    logo: "/radio-logos/placeholder.svg",
+    category: "Music"
+  },
+  {
+    id: 24,
+    name: "Radio Swiss Pop",
+    url: "https://stream.srg-ssr.ch/m/rsj/mp3_128",
+    logo: "/radio-logos/placeholder.svg",
+    category: "Music"
+  },
+  {
+    id: 25,
+    name: "98.8 Kiss FM Berlin",
+    url: "https://stream.kissfm.de/kissfm/mp3-128",
+    logo: "/radio-logos/placeholder.svg",
+    category: "Music"
+  },
+  
+
 ];
 
 export default stations;

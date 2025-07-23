@@ -218,23 +218,7 @@ export default function RadioPlayerClient() {
         {/* Sources will be set dynamically in useEffect */}
       </audio>
       
-      {/* Error message */}
-      {streamError && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg dark:bg-red-900/30 dark:border-red-800 dark:text-red-400">
-          <div className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p>{streamError}</p>
-          </div>
-          <button 
-            onClick={() => setStreamError(null)}
-            className="mt-2 text-sm font-medium hover:underline focus:outline-none"
-          >
-            Dismiss
-          </button>
-        </div>
-      )}
+    
 
       {/* Controls */}
       <div className="flex items-center justify-center mb-8">
@@ -303,50 +287,10 @@ export default function RadioPlayerClient() {
         </div>
       </div>
 
-      {/* Search input */}
-      <div className="mb-8">
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-              <svg className="w-5 h-5 text-blue-500 dark:text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-              </svg>
-            </div>
-            <input 
-              type="search" 
-              className="block w-full p-4 pl-12 text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 transition-all duration-200" 
-              placeholder="Search for stations or categories..." 
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            {searchQuery && (
-              <button 
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 focus:outline-none"
-                onClick={() => setSearchQuery('')}
-                aria-label="Clear search"
-              >
-                <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
-            )}
-          </div>
-          
-          <button 
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 focus:outline-none"
-            onClick={() => setVolume(Math.min(100, volume + 10))}
-            aria-label="Increase volume"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-          </button>
-        </div>
-      </div>
     </div>
 
     {/* Search input */}
-    <div className="mb-8">
+    <div className="mb-8 mt-5">
       <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -377,7 +321,7 @@ export default function RadioPlayerClient() {
     </div>
 
     {/* Stations list */}
-    <div className="mt-8">
+    <div className="mt-8 border-2 border-gray-200 dark:border-gray-700 px-10 py-6 rounded-2xl">
       {searchQuery ? (
         <div>
           <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Search Results</h3>
@@ -510,79 +454,7 @@ export default function RadioPlayerClient() {
           </div>
         )}
       </div>
-      {/* Categories */}
-      <div className="mt-8">
-        {!searchQuery && (
-          <div>
-            {[...new Set(stations.map(station => station.category))].sort().map(category => (
-              <div key={category} className="mb-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-3">
-                    {category === 'BBC' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                      </svg>
-                    )}
-                    {category === 'Music' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                      </svg>
-                    )}
-                    {category === 'Talk' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                      </svg>
-                    )}
-                    {category === 'Sports' && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                      </svg>
-                    )}
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                    {category}
-                  </h4>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {stations
-                    .filter(station => station.category === category)
-                    .map((station) => (
-                    <button
-                      key={station.id}
-                      onClick={() => handleStationChange(station)}
-                      className={`flex items-center p-4 rounded-xl transition-all duration-200 border ${currentStation?.id === station.id
-                        ? "bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 dark:from-blue-900/30 dark:to-purple-900/30 dark:border-blue-800 shadow-md"
-                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-800"}`}
-                    >
-                      <div className="w-12 h-12 relative mr-4 rounded-lg overflow-hidden shadow-sm">
-                        {station.logo ? (
-                          <Image 
-                            src={station.logo} 
-                            alt={`${station.name} logo`}
-                            fill
-                            className="object-contain"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                            <span className="text-white text-xl font-bold">{station.name.charAt(0)}</span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="text-left">
-                        <span className={`font-medium block text-base ${currentStation?.id === station.id
-                          ? "text-blue-700 dark:text-blue-300"
-                          : "text-gray-800 dark:text-gray-200"}`}>
-                          {station.name}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+    
     </div>
   );
 }
